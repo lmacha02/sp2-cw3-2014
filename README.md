@@ -5,3 +5,5 @@ Coursework 3 - Elevator
 
 @author: Heiler, Christian (cheile01)
 @author: Machado, Luis
+
+@version: 0.1
