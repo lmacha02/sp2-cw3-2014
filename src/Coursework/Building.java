@@ -3,6 +3,8 @@
  */
 package Coursework;
 
+import java.util.ArrayList;
+
 /**
  * @author cheile01
  *
@@ -10,11 +12,15 @@ package Coursework;
 public interface Building {
 	int numFloors = 0;
 	
-	
-	public void setFloors(int f);
+	/*
+	 * @param numberFloors number of floors 
+	 */
+	public void setFloors(int numberFloors);
 	
 	public int getFloors();
 	
+	public void addCustomer(Object cust);
 	
+	public ArrayList<customer> getCustomerList();
 	
 }
