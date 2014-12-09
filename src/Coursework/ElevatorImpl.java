@@ -11,6 +11,8 @@ import java.util.ArrayList;
  */
 public class ElevatorImpl implements Elevator {
 	private int currentFloor;
+	private int NUM_OF_FLOORS;
+	private ArrayList<Customer> registerList = new ArrayList<Customer>();
 	
 	/**
 	 * 
@@ -21,7 +23,7 @@ public class ElevatorImpl implements Elevator {
 
 	@Override
 	public void setFloors(int floors) {
-		// TODO Auto-generated method stub
+		this.NUM_OF_FLOORS = floors;
 		
 	}
 
@@ -33,14 +35,18 @@ public class ElevatorImpl implements Elevator {
 
 	@Override
 	public void move(int direction) {
-		// TODO Auto-generated method stub
-		
+		if (direction == -1){
+			this.currentFloor -= 1;
+		} else if(direction == 1) {
+			this.currentFloor += 1;
+		} else {
+			
+		}
 	}
 
 	@Override
 	public int getCurrentFloor() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.currentFloor;
 	}
 
 	@Override
@@ -50,9 +56,9 @@ public class ElevatorImpl implements Elevator {
 	}
 
 	@Override
-	public Object create() {
+	public Object create(int floors) {
 		// TODO Auto-generated method stub
-		return null;
+		return new ElevatorImpl(floors);
 	}
 
 	@Override
@@ -66,5 +72,9 @@ public class ElevatorImpl implements Elevator {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	
+	
 
 }

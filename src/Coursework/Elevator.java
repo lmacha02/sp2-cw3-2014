@@ -31,9 +31,10 @@ public interface Elevator {
 	
 	/*
 	 * Create Object
+	 * @param floors - number of floors in the 
 	 * @return Elevator Object.
 	 */
-	public Object create();
+	public Object create(int floors);
 	
 	/*
 	 * customerLeaves
