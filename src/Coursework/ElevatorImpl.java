@@ -29,8 +29,8 @@ public class ElevatorImpl implements Elevator {
 
 	@Override
 	public int getFloors() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return this.NUM_OF_FLOORS;
 	}
 
 	@Override
@@ -68,12 +68,6 @@ public class ElevatorImpl implements Elevator {
 	}
 
 	@Override
-	public Object create(int floors) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void setDirection(int direction) {
 		this.direction = direction;
 		
@@ -87,7 +81,7 @@ public class ElevatorImpl implements Elevator {
 
 	@Override
 	public void changeDirection() {
-		// TODO Auto-generated method stub
+		this.direction = this.direction * -1;
 	}
 
 	@Override

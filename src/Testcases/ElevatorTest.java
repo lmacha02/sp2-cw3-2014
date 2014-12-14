@@ -11,14 +11,14 @@ public class ElevatorTest {
 
 	@Test
 	public void test() {
-		Elevator e = (Elevator) ElevatorImpl.create();
+		Elevator e = (Elevator) Elevator.create();
 		e.setCurrentFloor(5);
 		assertEquals("Wrong Answer!", e.getCurrentFloor(), 5);
 	}
 	
 	@Test
 	public void movetestUp() {
-		Elevator e = (Elevator) ElevatorImpl.create();
+		Elevator e = (Elevator) Elevator.create();
 		e.setCurrentFloor(5);
 		e.setDirection(1);
 		e.move();
@@ -27,7 +27,7 @@ public class ElevatorTest {
 	
 	@Test
 	public void movetestDown() {
-		Elevator e = (Elevator) ElevatorImpl.create();
+		Elevator e = (Elevator) Elevator.create();
 		e.setCurrentFloor(5);
 		e.setDirection(-1);
 		e.move();

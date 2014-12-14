@@ -5,6 +5,8 @@ package Coursework;
 
 import java.util.ArrayList;
 
+import com.sun.webkit.dom.CounterImpl;
+
 
 /**
  * @author christianheiler
@@ -31,10 +33,11 @@ public interface Elevator {
 	
 	/*
 	 * Create Object
-	 * @param floors - number of floors in the 
 	 * @return Elevator Object.
 	 */
-	public Object create(int floors);
+	public static Object create(){
+		return (Object)Elevator.create();
+	}
 	
 	/*
 	 * customerLeaves

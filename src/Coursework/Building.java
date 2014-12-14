@@ -21,6 +21,6 @@ public interface Building {
 	
 	public void addCustomer(Object cust);
 	
-	public ArrayList<customer> getCustomerList();
+	public ArrayList<Customer> getCustomerList();
 	
 }
