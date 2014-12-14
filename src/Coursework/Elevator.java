@@ -21,9 +21,9 @@ public interface Elevator {
 	public int getFloors();
 	
 	/* move elevator
-	 * @param direction use 1 to move one level up, use -1 to move one level down.
+	 * move elevator in the current direction
 	 */
-	public void move(int direction);
+	public void move();
 	
 	public int getCurrentFloor();
 	
@@ -49,6 +49,20 @@ public interface Elevator {
 	 * registers customer to customerList
 	 */
 	public void customerJoins(Object customer);
+	
+	public void setDirection(int direction);
+	
+	public int getDirection();
+	
+	/*
+	 * changeDirection
+	 * changeCurrentDirection	
+	 */
+	public void changeDirection();
+	
+	public void setCurrentFloor(int i);
+	
+	
 	
 	
 	
