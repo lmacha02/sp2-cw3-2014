@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public interface Building {
 	int numFloors = 0;
 	
+	
 	/*
 	 * @param numberFloors number of floors 
 	 */
@@ -22,5 +23,14 @@ public interface Building {
 	public void addCustomer(Object cust);
 	
 	public ArrayList<Customer> getCustomerList();
+	
+	public void addElevator(Elevator e);
+	
+	public static Object create(){
+		return (Object)Building.create();
+	}
+	
+	
+	
 	
 }
