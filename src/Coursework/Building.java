@@ -20,7 +20,7 @@ public interface Building {
 	
 	public int getFloors();
 	
-	public void addCustomer(Object cust);
+	public void addCustomer(Customer cust);
 	
 	public ArrayList<Customer> getCustomerList();
 	
@@ -30,7 +30,6 @@ public interface Building {
 		return (Object)Building.create();
 	}
 	
-	
-	
+	public void start();
 	
 }
