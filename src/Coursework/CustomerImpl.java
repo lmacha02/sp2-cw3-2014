@@ -27,8 +27,8 @@ public class CustomerImpl implements Customer {
 		this.setStart(this.randInt(topFloor));			
 	}
 	
-	// to generate the random int from 0 to top floor (the 13th floor issue is dealt with
-	// in the constructor
+	// to generate the random int from 0 to top floor (the 13th floor issue should be dealt with
+	// somewhere else
 	private int randInt(int max) {
 		int min = 0;
 		
