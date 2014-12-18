@@ -14,12 +14,12 @@ public class CustomerImpl implements Customer {
 	
 	private Boolean inElevator = false;
 	private Boolean finished = false;
-	private static int ID;
+	private static int ID = 0;
 	private int start;
 	private int destination;
 	
 	public CustomerImpl(int topFloor) {
-		ID = ID++;
+		this.ID++;
 		
 		// I was thinking of having the random generator here for simplicity, im not sure 
 		// if it actually makes it easier tho.. 
@@ -56,7 +56,7 @@ public class CustomerImpl implements Customer {
 	}
 
 	public int getId() {
-		return ID;
+		return this.ID;
 	}
 
 	public void setFinished() {
