@@ -1,9 +1,13 @@
 package Coursework;
+import java.util.Random;
 
 /**
  * @author lmacha02
  *
  */
+
+
+//testing stupid github again
 
 public class CustomerImpl implements Customer {
 	
@@ -13,10 +17,27 @@ public class CustomerImpl implements Customer {
 	private int start;
 	private int destination;
 	
-	public CustomerImpl() {
+	public CustomerImpl(int topFloor) {
 		ID = ID++;
+		
+		// I was thinking of having the random generator here for simplicity, im not sure 
+		// if it actually makes it easier tho.. 
+		this.setDestination(this.randInt(topFloor));
+		this.setStart(this.randInt(topFloor));			
 	}
 	
+	// to generate the random int from 0 to top floor (the 13th floor issue is dealt with
+	// in the constructor
+	private int randInt(int max) {
+		int min = 0;
+		
+	    Random random = new Random();
+	    int randomInt = random.nextInt((max - min) + 1) + min;
+
+	    return randomInt;
+	}
+	
+
 	public void setStart(int start) {
 		this.start = start;
 	}
@@ -40,22 +61,16 @@ public class CustomerImpl implements Customer {
 	public void setFinished() {
 		finished = true;
 	}
+	
+	public Boolean getFinished() {
+		return finished;
+	}
 
-	@Override
 	public void setInElevator() {
 		inElevator = true;
 	}
 
-	@Override
 	public Boolean getInElevator() {
-		// TODO Auto-generated method stub
-		return null;
+		return inElevator;
 	}
-
-	@Override
-	public Boolean getFinished() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
