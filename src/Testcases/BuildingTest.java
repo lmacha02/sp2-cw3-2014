@@ -10,5 +10,5 @@ public class BuildingTest {
 	public void test() {
 		fail("Not yet implemented");
 	}
-
+ // bla bka
 }
