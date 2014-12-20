@@ -86,9 +86,11 @@ public class ElevatorTest {
 		
 		e.customerLeaves(c2);
 		
-	
 		assertEquals("Is IN in elevator", false,e.getRegisterList().contains(c2));
 	}
+	
+	
+	
 	
 	
 	

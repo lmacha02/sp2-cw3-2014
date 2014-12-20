@@ -56,6 +56,18 @@ public class BuildingImpl implements Building{
 	public static Object create() {
 		return (Object)Building.create();
 	}
+
+	@Override
+	public boolean customerInElevator(Customer cust) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean customerOnFloor(int f) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 
