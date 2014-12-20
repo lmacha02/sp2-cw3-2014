@@ -26,6 +26,8 @@ public interface Building {
 	
 	public void addElevator(Elevator e);
 	
+	public Elevator getElevator();
+	
 	public static Object create(){
 		return new BuildingImpl();
 	}

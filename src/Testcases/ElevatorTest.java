@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import Coursework.Customer;
+import Coursework.CustomerImpl;
 import Coursework.ElevatorImpl;
 import Coursework.Elevator;
 
@@ -33,5 +35,19 @@ public class ElevatorTest {
 		e.move();
 		assertEquals("Wrong Answer!", e.getCurrentFloor(), 4);
 	}
+	
+	@Test
+	public void CustomerInTest() {
+		Elevator e = (Elevator) Elevator.create();
+		Customer c1 = new CustomerImpl(10);
+		Customer c2 = new CustomerImpl(10);
+		Customer c3 = new CustomerImpl(10);
+		
+		e.customerJoins(c1);
+		int temp = e.getRegisterList().get(0).getId();
+
+		assertEquals("Wrong Answer!", temp, 1);
+	}
+	
 
 }

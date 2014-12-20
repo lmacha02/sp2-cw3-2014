@@ -14,12 +14,6 @@ public class BuildingImpl implements Building{
 	private ArrayList<Customer> customerList = new ArrayList<Customer>();
 	private Elevator elevator;
 	
-	/**
-	 * 
-	 */
-	public BuildingImpl() {
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
 	public void setFloors(int numberFloors) {
@@ -46,6 +40,11 @@ public class BuildingImpl implements Building{
 	public void addElevator(Elevator e) {
 		this.elevator = e;
 	}
+	
+	@Override
+	public Elevator getElevator() {
+		return this.elevator;
+	}
 
 	@Override
 	public void start() {
@@ -55,7 +54,6 @@ public class BuildingImpl implements Building{
 	}
 	
 	public static Object create() {
-
 		return (Object)Building.create();
 	}
 	

@@ -51,7 +51,7 @@ public interface Elevator {
 	 * @param customer
 	 * registers customer to customerList
 	 */
-	public void customerJoins(Object customer);
+	public void customerJoins(Customer cust);
 	
 	public void setDirection(int direction);
 	
@@ -64,6 +64,8 @@ public interface Elevator {
 	public void changeDirection();
 	
 	public void setCurrentFloor(int i);
+	
+	
 	
 	
 	
