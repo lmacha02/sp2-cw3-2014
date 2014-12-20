@@ -5,8 +5,6 @@ package Coursework;
 
 import java.util.ArrayList;
 
-import com.sun.webkit.dom.CounterImpl;
-
 
 /**
  * @author christianheiler
@@ -36,7 +34,7 @@ public interface Elevator {
 	 * @return Elevator Object.
 	 */
 	public static Object create(){
-		return (Object)Elevator.create();
+		return ElevatorImpl.create();
 	}
 	
 	/*
@@ -65,11 +63,7 @@ public interface Elevator {
 	
 	public void setCurrentFloor(int i);
 	
-	
-	
-	
-	
-	
+
 	
 	
 }

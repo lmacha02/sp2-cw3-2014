@@ -31,9 +31,9 @@ public class BuildingTest {
 		b.addCustomer(c2);
 		b.addCustomer(c3);
 		
-		int temp = b.getCustomerList().get(2).getId();
+		int temp = b.getCustomerList().get(1).getId();
 		
-		assertEquals("Wrong Answer!", temp, c3.getId());	
+		assertEquals("Wrong Answer!", temp, c2.getId());	
 	}
 	
 	

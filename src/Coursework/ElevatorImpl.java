@@ -75,7 +75,6 @@ public class ElevatorImpl implements Elevator {
 	@Override
 	public int getDirection() {
 		return this.direction;
-		
 	}
 
 	@Override
@@ -85,8 +84,7 @@ public class ElevatorImpl implements Elevator {
 
 	@Override
 	public void setCurrentFloor(int i) {
-		this.currentFloor = i;
-		
+		this.currentFloor = i;	
 	}
 	
 	
