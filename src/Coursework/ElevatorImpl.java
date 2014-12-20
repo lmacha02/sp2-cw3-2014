@@ -13,6 +13,7 @@ public class ElevatorImpl implements Elevator {
 	private int currentFloor;
 	private int NUM_OF_FLOORS;
 	private ArrayList<Customer> registerList = new ArrayList<Customer>();
+	private int direction;
 	
 	/**
 	 * 
@@ -24,24 +25,18 @@ public class ElevatorImpl implements Elevator {
 	@Override
 	public void setFloors(int floors) {
 		this.NUM_OF_FLOORS = floors;
-		
 	}
 
 	@Override
 	public int getFloors() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return this.NUM_OF_FLOORS;
 	}
 
 	@Override
-	public void move(int direction) {
-		if (direction == -1){
-			this.currentFloor -= 1;
-		} else if(direction == 1) {
-			this.currentFloor += 1;
-		} else {
-			
-		}
+	public void move() {
+		this.currentFloor += this.direction;
+
 	}
 
 	@Override
@@ -55,10 +50,9 @@ public class ElevatorImpl implements Elevator {
 		return null;
 	}
 
-	@Override
-	public Object create(int floors) {
-		// TODO Auto-generated method stub
-		return new ElevatorImpl(floors);
+	public static Object create() {
+		//assumption: Elevator always starts at ground floor.
+		return new ElevatorImpl(0);
 	}
 
 	@Override
@@ -72,6 +66,31 @@ public class ElevatorImpl implements Elevator {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void setDirection(int direction) {
+		this.direction = direction;
+		
+	}
+
+	@Override
+	public int getDirection() {
+		return this.direction;
+		
+	}
+
+	@Override
+	public void changeDirection() {
+		this.direction = this.direction * -1;
+	}
+
+	@Override
+	public void setCurrentFloor(int i) {
+		this.currentFloor = i;
+		
+	}
+	
+	
 
 
 	

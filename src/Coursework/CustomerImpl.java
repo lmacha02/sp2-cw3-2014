@@ -7,18 +7,19 @@ import java.util.Random;
  */
 
 
-//testing stupid github again
+//testing stupid github
+//testing github agaaain
 
 public class CustomerImpl implements Customer {
 	
 	private Boolean inElevator = false;
 	private Boolean finished = false;
-	private static int ID;
+	private static int ID = 0;
 	private int start;
 	private int destination;
 	
 	public CustomerImpl(int topFloor) {
-		ID = ID++;
+		this.ID++;
 		
 		// I was thinking of having the random generator here for simplicity, im not sure 
 		// if it actually makes it easier tho.. 
@@ -26,8 +27,8 @@ public class CustomerImpl implements Customer {
 		this.setStart(this.randInt(topFloor));			
 	}
 	
-	// to generate the random int from 0 to top floor (the 13th floor issue is dealt with
-	// in the constructor
+	// to generate the random int from 0 to top floor (the 13th floor issue should be dealt with
+	// somewhere else
 	private int randInt(int max) {
 		int min = 0;
 		
@@ -55,7 +56,7 @@ public class CustomerImpl implements Customer {
 	}
 
 	public int getId() {
-		return ID;
+		return this.ID;
 	}
 
 	public void setFinished() {
