@@ -54,6 +54,11 @@ public class BuildingImpl implements Building{
 		
 	}
 	
+	public static Object create() {
+
+		return (Object)Building.create();
+	}
+	
 	
 
 }

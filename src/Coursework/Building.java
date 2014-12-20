@@ -27,7 +27,7 @@ public interface Building {
 	public void addElevator(Elevator e);
 	
 	public static Object create(){
-		return (Object)Building.create();
+		return new BuildingImpl();
 	}
 	
 	public void start();

@@ -29,7 +29,7 @@ public interface Elevator {
 	
 	public int getCurrentFloor();
 	
-	public ArrayList<Object> registerList();
+	public ArrayList<Customer> getRegisterList();
 	
 	/*
 	 * Create Object
@@ -44,7 +44,7 @@ public interface Elevator {
 	 * @param customer
 	 * deregisters customer from customerList
 	 */
-	public void customerLeaves(Object customer);
+	public void customerLeaves(Customer cust);
 	
 	/*
 	 * customerJoins

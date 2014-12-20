@@ -45,7 +45,7 @@ public class ElevatorImpl implements Elevator {
 	}
 
 	@Override
-	public ArrayList<Object> registerList() {
+	public ArrayList<Customer> getRegisterList() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -56,8 +56,8 @@ public class ElevatorImpl implements Elevator {
 	}
 
 	@Override
-	public void customerLeaves(Object customer) {
-		// TODO Auto-generated method stub
+	public void customerLeaves(Customer cust) {
+		this.registerList.remove(cust);
 		
 	}
 
