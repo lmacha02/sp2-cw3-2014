@@ -9,8 +9,12 @@ public class Controller {
 		
 		System.out.print("Set number of floors: ");
 		int inFloors = scanner.nextInt();// exception handling to be added
+		
 		System.out.print("/nSet number of customers:");
 		int inCostumers = scanner.nextInt();// exception handling to be added
+		
+		ElevatorImpl lift = new ElevatorImpl(0);
+		
 		
 		
 	}
