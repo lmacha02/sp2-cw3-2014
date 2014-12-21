@@ -21,36 +21,49 @@ public interface Elevator {
 	public int getFloors();
 	
 	/* move elevator
-	 * @param direction use 1 to move one level up, use -1 to move one level down.
+	 * move elevator in the current direction
 	 */
-	public void move(int direction);
+	public void move();
 	
 	public int getCurrentFloor();
 	
-	public ArrayList<Object> registerList();
+	public ArrayList<Customer> getRegisterList();
 	
 	/*
 	 * Create Object
-	 * @param floors - number of floors in the 
 	 * @return Elevator Object.
 	 */
-	public Object create(int floors);
+	public static Object create(){
+		return ElevatorImpl.create();
+	}
 	
 	/*
 	 * customerLeaves
 	 * @param customer
 	 * deregisters customer from customerList
 	 */
-	public void customerLeaves(Object customer);
+	public void customerLeaves(Customer cust);
 	
 	/*
 	 * customerJoins
 	 * @param customer
 	 * registers customer to customerList
 	 */
-	public void customerJoins(Object customer);
+	public void customerJoins(Customer cust);
 	
+	public void setDirection(int direction);
 	
+	public int getDirection();
+	
+	/*
+	 * changeDirection
+	 * changeCurrentDirection	
+	 */
+	public void changeDirection();
+	
+	public void setCurrentFloor(int i);
+	
+
 	
 	
 }
