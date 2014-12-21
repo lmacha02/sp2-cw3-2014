@@ -6,10 +6,6 @@ import java.util.Random;
  *
  */
 
-
-//testing stupid github
-//testing github agaaain
-
 public class CustomerImpl implements Customer {
 	
 	private Boolean inElevator = false;
