@@ -9,6 +9,7 @@ import Coursework.CustomerImpl;
 import Coursework.Building;
 import Coursework.BuildingImpl;
 import Coursework.Elevator;
+import Coursework.ElevatorImpl;
 
 public class BuildingTest {
 
@@ -62,10 +63,17 @@ public class BuildingTest {
 		b.addCustomer(c3);
 		b.addCustomer(c4);
 		
-		
-		
-		
-		assertEquals("Is IN in elevator", false,e.getRegisterList().contains(c2));
+		for(int i=0; i<13; i++){
+			b.getElevator().move();
+			int current = b.getElevator().getCurrentFloor();
+			System.out.print("Elevator on floor" + current + ": ");
+			for(Customer cust : b.getCustomerList()){
+				if (current == cust.getStart()){
+					System.out.print(cust.getId() + " ");
+				}
+			}
+			
+		}
 	}
 	
 	

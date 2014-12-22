@@ -64,7 +64,14 @@ public class BuildingImpl implements Building{
 	}
 
 	@Override
-	public boolean customerOnFloor(int f) {
+	public boolean customerOnCurrentFloor(Customer cust) {
+		int current = this.elevator.getCurrentFloor();
+		if( current == cust.getStart() ) return true;
+		return false;
+	}
+
+	@Override
+	public boolean customerOnFloor(int f, Customer cust) {
 		// TODO Auto-generated method stub
 		return false;
 	}

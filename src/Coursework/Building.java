@@ -28,7 +28,7 @@ public interface Building {
 	
 	public Elevator getElevator();
 	
-	public static Object create(){
+	public static Building create(){
 		return new BuildingImpl();
 	}
 	
@@ -36,7 +36,9 @@ public interface Building {
 	
 	boolean customerInElevator(Customer cust);
 	
-	boolean customerOnFloor(int f);
+	boolean customerOnFloor(int f, Customer cust);
+
+	boolean customerOnCurrentFloor(Customer cust);
 	
 	
 }
