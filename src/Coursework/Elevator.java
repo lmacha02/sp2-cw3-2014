@@ -63,6 +63,10 @@ public interface Elevator {
 	
 	public void setCurrentFloor(int i);
 	
+	public String getCustomersInElevatorString();
+	
+	public boolean customerInElevator(Customer cust);
+	
 
 	
 	

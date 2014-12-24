@@ -38,7 +38,7 @@ public interface Building {
 
 	boolean customerOnCurrentFloor(Customer cust);
 	
-	boolean getCustomersInTransit();
+	public int getCustomersInTransit();
 	
 	
 }

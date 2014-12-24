@@ -64,12 +64,12 @@ public class CustomerImpl implements Customer {
 		return this.finished;
 	}
 
-	public void setInElevator() {
-		this.inElevator = true;
+	public void setInElevator(boolean status) {
+		this.inElevator = status;
 	}
 
 	public Boolean getInElevator() {
-		return inElevator;
+		return this.inElevator;
 	}
 
 	@Override

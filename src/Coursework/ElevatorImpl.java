@@ -87,6 +87,23 @@ public class ElevatorImpl implements Elevator {
 	public void setCurrentFloor(int i) {
 		this.currentFloor = i;	
 	}
+
+	@Override
+	public String getCustomersInElevatorString() {
+		String s = "";
+		for(Customer cust : this.getRegisterList()){
+			s = s + cust.getId()+" ";
+		}
+		return s;
+	}
+
+	@Override
+	public boolean customerInElevator(Customer cust) {
+		return this.registerList.contains(cust);
+
+	}
+	
+	
 	
 	
 

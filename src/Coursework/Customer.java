@@ -19,7 +19,7 @@ public interface Customer {
 	
 	public int getId();
 	
-	public void setInElevator();
+	public void setInElevator(boolean status);
 	
 	public Boolean getInElevator();
 	
