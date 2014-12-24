@@ -34,11 +34,11 @@ public interface Building {
 	
 	public void start();
 	
-	boolean customerInElevator(Customer cust);
-	
 	boolean customerOnFloor(int f, Customer cust);
 
 	boolean customerOnCurrentFloor(Customer cust);
+	
+	boolean getCustomersInTransit();
 	
 	
 }

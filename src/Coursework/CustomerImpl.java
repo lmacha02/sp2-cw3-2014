@@ -57,15 +57,15 @@ public class CustomerImpl implements Customer {
 	}
 
 	public void setFinished() {
-		finished = true;
+		this.finished = true;
 	}
 	
 	public Boolean getFinished() {
-		return finished;
+		return this.finished;
 	}
 
 	public void setInElevator() {
-		inElevator = true;
+		this.inElevator = true;
 	}
 
 	public Boolean getInElevator() {

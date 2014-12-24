@@ -28,8 +28,7 @@ public class ElevatorImpl implements Elevator {
 	}
 
 	@Override
-	public int getFloors() {
-		
+	public int getFloors() {	
 		return this.NUM_OF_FLOORS;
 	}
 

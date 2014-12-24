@@ -48,19 +48,14 @@ public class BuildingImpl implements Building{
 
 	@Override
 	public void start() {
-		// TODO Auto-generated method stub
+
+		
 		//process logic(s);
 		
 	}
 	
 	public static Object create() {
 		return (Object)Building.create();
-	}
-
-	@Override
-	public boolean customerInElevator(Customer cust) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
@@ -75,6 +70,19 @@ public class BuildingImpl implements Building{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public boolean getCustomersInTransit() {
+		int count = 0;
+		for(Customer cust : this.customerList){
+			if(cust.getFinished() == true){
+				count++;
+			}
+		}
+		return false;
+	}
+	
+	
 	
 	
 
