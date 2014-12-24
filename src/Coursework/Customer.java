@@ -27,4 +27,6 @@ public interface Customer {
 	
 	public Boolean getFinished();
 	
+	public int getDirection();
+	
 }

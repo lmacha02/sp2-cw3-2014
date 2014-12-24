@@ -71,4 +71,12 @@ public class CustomerImpl implements Customer {
 	public Boolean getInElevator() {
 		return inElevator;
 	}
+
+	@Override
+	public int getDirection() {
+		if(this.start<this.destination) return 1;
+		if(this.start>this.destination) return -1;
+		this.setFinished();
+		return 0;
+	}
 }

@@ -19,7 +19,7 @@ public class BuildingTest {
 		Customer c2 = new CustomerImpl(10);
 		Customer c3 = new CustomerImpl(10);
 		
-		assertEquals("Wrong Answer!", c3.getId(), 3);
+		assertEquals("Wrong Answer!", c3.getId(), 7);
 		
 	}
 
@@ -49,14 +49,14 @@ public class BuildingTest {
 		c1.setStart(3);
 		c1.setDestination(6);
 		Customer c2 = new CustomerImpl(10);
-		c2.setStart(4);
+		c2.setStart(3);
 		c2.setDestination(8);
 		Customer c3 = new CustomerImpl(10);
 		c3.setStart(5);
 		c3.setDestination(10);
 		Customer c4 = new CustomerImpl(10);
-		c3.setStart(6);
-		c3.setDestination(12);
+		c4.setStart(12);
+		c4.setDestination(5);
 		
 		b.addCustomer(c1);
 		b.addCustomer(c2);
@@ -66,16 +66,15 @@ public class BuildingTest {
 		for(int i=0; i<13; i++){
 			b.getElevator().move();
 			int current = b.getElevator().getCurrentFloor();
-			System.out.print("Elevator on floor" + current + ": ");
+			System.out.print("Elevator on floor " + current + ": ");
 			for(Customer cust : b.getCustomerList()){
 				if (current == cust.getStart()){
-					System.out.print(cust.getId() + " ");
+					System.out.print(cust.getId() + "("+cust.getDirection()+") ");
 				}
 			}
+			System.out.println();
 			
 		}
 	}
-	
-	
-	
+
 }

@@ -13,7 +13,7 @@ public class ElevatorImpl implements Elevator {
 	private int currentFloor;
 	private int NUM_OF_FLOORS;
 	private ArrayList<Customer> registerList = new ArrayList<Customer>();
-	private int direction;
+	private int direction= 1;
 	
 	/**
 	 * 
@@ -41,7 +41,9 @@ public class ElevatorImpl implements Elevator {
 
 	@Override
 	public int getCurrentFloor() {
-		return this.currentFloor;
+		int output = this.currentFloor;
+		if(output >= 13) output++;
+		return output;
 	}
 
 	@Override
