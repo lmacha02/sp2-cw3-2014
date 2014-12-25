@@ -32,10 +32,8 @@ public interface Building {
 		return new BuildingImpl();
 	}
 	
-	public void start();
+	public void start(int logic);
 	
-	boolean customerOnFloor(int f, Customer cust);
-
 	boolean customerOnCurrentFloor(Customer cust);
 	
 	public int getCustomersInTransit();

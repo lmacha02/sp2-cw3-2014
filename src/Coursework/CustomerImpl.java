@@ -17,7 +17,6 @@ public class CustomerImpl implements Customer {
 	
 	public CustomerImpl(int topFloor) {
 
-		
 		// I was thinking of having the random generator here for simplicity, im not sure 
 		// if it actually makes it easier tho.. 
 		this.setDestination(this.randInt(topFloor));
@@ -37,6 +36,10 @@ public class CustomerImpl implements Customer {
 	
 
 	public void setStart(int start) {
+		if(start == 13){
+			System.out.println("Customer "+this.getId()+" on non-existent floor!");
+			start=0;
+		}
 		this.start = start;
 	}
 
@@ -45,6 +48,10 @@ public class CustomerImpl implements Customer {
 	}
 
 	public void setDestination(int destination) {
+		if(destination == 13){
+			System.out.println("Customer "+this.getId()+" destination to non-existent floor!");
+			destination=0;
+		}
 		this.destination = destination;
 	}
 
@@ -74,8 +81,8 @@ public class CustomerImpl implements Customer {
 
 	@Override
 	public int getDirection() {
-		if(this.start<this.destination) return 1;
-		if(this.start>this.destination) return -1;
+		if(this.start<this.destination && !this.getFinished()) return 1;
+		if(this.start>this.destination && !this.getFinished()) return -1;
 		this.setFinished();
 		return 0;
 	}

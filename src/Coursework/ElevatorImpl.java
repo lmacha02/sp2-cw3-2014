@@ -35,13 +35,14 @@ public class ElevatorImpl implements Elevator {
 	@Override
 	public void move() {
 		this.currentFloor += this.direction;
+		if(this.currentFloor == 13) this.currentFloor += this.direction;
 
 	}
 
 	@Override
 	public int getCurrentFloor() {
 		int output = this.currentFloor;
-		if(output >= 13) output++;
+		//if(output >= 13) output++;
 		return output;
 	}
 

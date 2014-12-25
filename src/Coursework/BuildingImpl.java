@@ -48,7 +48,33 @@ public class BuildingImpl implements Building{
 	}
 
 	@Override
-	public void start() {
+	public void start(int logic) {
+		if(logic == 1) this.logic1();
+	}
+	
+	public static Object create() {
+		return (Object)Building.create();
+	}
+
+	@Override
+	public boolean customerOnCurrentFloor(Customer cust) {
+		int current = this.elevator.getCurrentFloor();
+		if( current == cust.getStart() ) return true;
+		return false;
+	}
+
+	@Override
+	public int getCustomersInTransit() {
+		int count = 0;
+		for(Customer cust : this.customerList){
+			if(cust.getFinished() == false){
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	private void logic1(){
 		while(this.getCustomersInTransit()>0){
 			int current = this.getElevator().getCurrentFloor();
 			System.out.print(current+": ");
@@ -65,50 +91,21 @@ public class BuildingImpl implements Building{
 						cust.setFinished();
 						System.out.print(cust.getId()+"- ");
 					}
-				}
-			}
+				}//END IF !cust.get.Finished()
+			}//END FOR loop
 			if (current == this.NUM_OF_FLOORS) {
 				this.getElevator().setDirection(-1);
 				System.out.print(" DOWN ");
 			}
+			//Make Elevator turn around in case it has reached top or bottom floor.
 			if (current == LOWEST_FLOOR) {
 				this.getElevator().setDirection(1);
 				System.out.print(" UP ");
 			}
 			System.out.println("["+this.getElevator().getCustomersInElevatorString()+"]");
 			this.getElevator().move();
-		}
-		
+		}//END WHILE no more customers needing transportation.
 	}
-	
-	public static Object create() {
-		return (Object)Building.create();
-	}
-
-	@Override
-	public boolean customerOnCurrentFloor(Customer cust) {
-		int current = this.elevator.getCurrentFloor();
-		if( current == cust.getStart() ) return true;
-		return false;
-	}
-
-	@Override
-	public boolean customerOnFloor(int f, Customer cust) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public int getCustomersInTransit() {
-		int count = 0;
-		for(Customer cust : this.customerList){
-			if(cust.getFinished() == false){
-				count++;
-			}
-		}
-		return count;
-	}
-	
 	
 	
 	

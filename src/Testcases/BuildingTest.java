@@ -126,7 +126,7 @@ public class BuildingTest {
 		c3.setStart(5);
 		c3.setDestination(10);
 		Customer c4 = new CustomerImpl(10);
-		c4.setStart(12);
+		c4.setStart(14);
 		c4.setDestination(5);
 		
 		b.addCustomer(c1);
@@ -134,7 +134,7 @@ public class BuildingTest {
 		b.addCustomer(c3);
 		b.addCustomer(c4);
 		
-		b.start();
+		b.start(1);
 	}
 
 }
