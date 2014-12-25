@@ -15,9 +15,9 @@ public class BuildingTest {
 
 	@Test
 	public void customerTest() {
-		Customer c1 = new CustomerImpl(10);
-		Customer c2 = new CustomerImpl(10);
-		Customer c3 = new CustomerImpl(10);
+		Customer c1 = new CustomerImpl();
+		Customer c2 = new CustomerImpl();
+		Customer c3 = new CustomerImpl();
 		
 		assertEquals("Wrong Answer!", c3.getId(), 11);
 		
@@ -25,9 +25,9 @@ public class BuildingTest {
 
 	@Test
 	public void BuilingListTest() {
-		Customer c1 = new CustomerImpl(10);
-		Customer c2 = new CustomerImpl(10);
-		Customer c3 = new CustomerImpl(10);
+		Customer c1 = new CustomerImpl();
+		Customer c2 = new CustomerImpl();
+		Customer c3 = new CustomerImpl();
 		Building b = (Building)Building.create();
 		b.addCustomer(c1);
 		b.addCustomer(c2);
@@ -45,16 +45,16 @@ public class BuildingTest {
 		
 		b.addElevator(e);
 		
-		Customer c1 = new CustomerImpl(10);
+		Customer c1 = new CustomerImpl();
 		c1.setStart(3);
 		c1.setDestination(6);
-		Customer c2 = new CustomerImpl(10);
+		Customer c2 = new CustomerImpl();
 		c2.setStart(3);
 		c2.setDestination(8);
-		Customer c3 = new CustomerImpl(10);
+		Customer c3 = new CustomerImpl();
 		c3.setStart(5);
 		c3.setDestination(10);
-		Customer c4 = new CustomerImpl(10);
+		Customer c4 = new CustomerImpl();
 		c4.setStart(12);
 		c4.setDestination(5);
 		
@@ -86,16 +86,16 @@ public class BuildingTest {
 		
 		b.addElevator(e);
 		
-		Customer c1 = new CustomerImpl(10);
+		Customer c1 = new CustomerImpl();
 		c1.setStart(3);
 		c1.setDestination(6);
-		Customer c2 = new CustomerImpl(10);
+		Customer c2 = new CustomerImpl();
 		c2.setStart(3);
 		c2.setDestination(8);
-		Customer c3 = new CustomerImpl(10);
+		Customer c3 = new CustomerImpl();
 		c3.setStart(5);
 		c3.setDestination(10);
-		Customer c4 = new CustomerImpl(10);
+		Customer c4 = new CustomerImpl();
 		c4.setStart(12);
 		c4.setDestination(5);
 		
@@ -116,16 +116,16 @@ public class BuildingTest {
 		
 		b.addElevator(e);
 		
-		Customer c1 = new CustomerImpl(10);
+		Customer c1 = new CustomerImpl();
 		c1.setStart(3);
 		c1.setDestination(6);
-		Customer c2 = new CustomerImpl(10);
+		Customer c2 = new CustomerImpl();
 		c2.setStart(3);
 		c2.setDestination(8);
-		Customer c3 = new CustomerImpl(10);
+		Customer c3 = new CustomerImpl();
 		c3.setStart(5);
 		c3.setDestination(10);
-		Customer c4 = new CustomerImpl(10);
+		Customer c4 = new CustomerImpl();
 		c4.setStart(14);
 		c4.setDestination(5);
 		

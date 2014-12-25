@@ -33,7 +33,7 @@ public interface Elevator {
 	 * Create Object
 	 * @return Elevator Object.
 	 */
-	public static Object create(){
+	public static Elevator create(){
 		return ElevatorImpl.create();
 	}
 	

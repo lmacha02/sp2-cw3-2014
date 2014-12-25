@@ -29,4 +29,8 @@ public interface Customer {
 	
 	public int getDirection();
 	
+	public static Customer create(){
+		return CustomerImpl.create();
+	};
+	
 }

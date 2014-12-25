@@ -51,7 +51,7 @@ public class ElevatorImpl implements Elevator {
 		return this.registerList;
 	}
 
-	public static Object create() {
+	public static Elevator create() {
 		//assumption: Elevator always starts at ground floor.
 		return new ElevatorImpl(0);
 	}

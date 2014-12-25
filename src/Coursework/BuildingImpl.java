@@ -18,6 +18,10 @@ public class BuildingImpl implements Building{
 
 	@Override
 	public void setFloors(int numberFloors) {
+		if(numberFloors == 13){
+			System.out.println("Building can't have 13 floors, setting to 14");
+			numberFloors = 14;
+		}
 		this.NUM_OF_FLOORS = numberFloors;
 	}
 
@@ -52,8 +56,8 @@ public class BuildingImpl implements Building{
 		if(logic == 1) this.logic1();
 	}
 	
-	public static Object create() {
-		return (Object)Building.create();
+	public static Building create() {
+		return Building.create();
 	}
 
 	@Override

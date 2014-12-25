@@ -15,12 +15,8 @@ public class CustomerImpl implements Customer {
 	private int start;
 	private int destination;
 	
-	public CustomerImpl(int topFloor) {
-
-		// I was thinking of having the random generator here for simplicity, im not sure 
-		// if it actually makes it easier tho.. 
-		this.setDestination(this.randInt(topFloor));
-		this.setStart(this.randInt(topFloor));			
+	public CustomerImpl() {
+		
 	}
 	
 	// to generate the random int from 0 to top floor (the 13th floor issue should be dealt with
@@ -85,5 +81,9 @@ public class CustomerImpl implements Customer {
 		if(this.start>this.destination && !this.getFinished()) return -1;
 		this.setFinished();
 		return 0;
+	}
+	
+	public static Customer create() {
+		return new CustomerImpl();
 	}
 }
