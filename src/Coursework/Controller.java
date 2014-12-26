@@ -28,8 +28,9 @@ public class Controller {
 			b.addCustomer(cust);
 		}
 		System.out.println("Starting the Elevator:");
-		b.start(1);
-		
+		//b.start(1);
+		System.out.println("Starting Logic 2");
+		b.start(2);
 		
 	}
 	
@@ -52,7 +53,10 @@ public class Controller {
 		do{
 			if(in.hasNextInt()){
 				temp = in.nextInt();
-				
+				if(temp < 1){
+					System.out.print("A positive integer please! ");
+					temp = 0;
+				}
 			} else {
 				System.out.print("A positive integer please! ");
 				in.next();

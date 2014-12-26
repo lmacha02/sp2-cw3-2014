@@ -104,12 +104,5 @@ public class ElevatorImpl implements Elevator {
 
 	}
 	
-	
-	
-	
-
-
-	
-	
 
 }
