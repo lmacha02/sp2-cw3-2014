@@ -19,17 +19,7 @@ public class CustomerImpl implements Customer {
 		
 	}
 	
-	// to generate the random int from 0 to top floor (the 13th floor issue should be dealt with
-	// somewhere else
-	private int randInt(int max) {
-		int min = 0;
-		
-	    Random random = new Random();
-	    int randomInt = random.nextInt((max - min) + 1) + min;
 
-	    return randomInt;
-	}
-	
 
 	public void setStart(int start) {
 		if(start == 13){

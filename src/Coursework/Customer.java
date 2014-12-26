@@ -9,6 +9,10 @@ public interface Customer {
 	
 	//variables should be private, declare them in class customer 
 	
+	/*
+	 * setStart
+	 * @param start - starting floor
+	 */
 	public void setStart(int start);
 	
 	public int getStart();

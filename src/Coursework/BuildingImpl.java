@@ -1,21 +1,31 @@
-/**
- * 
- */
 package Coursework;
 
 import java.util.ArrayList;
 
 /**
- * @author christianheiler
+ * The Class BuildingImpl.
+ * Implements Building
  *
+ * @author christianheiler
  */
 public class BuildingImpl implements Building{
+	
+	/** The lowest floor. */
 	private static int LOWEST_FLOOR = 0; //assumption: There is no basement
+	
+	/** The num of floors. */
 	private int NUM_OF_FLOORS;
+	
+	/** The customer list. */
 	private ArrayList<Customer> customerList = new ArrayList<Customer>();
+	
+	/** The elevator. */
 	private Elevator elevator;
 	
 
+	/* (non-Javadoc)
+	 * @see Coursework.Building#setFloors(int)
+	 */
 	@Override
 	public void setFloors(int numberFloors) {
 		if(numberFloors == 13){
@@ -25,42 +35,68 @@ public class BuildingImpl implements Building{
 		this.NUM_OF_FLOORS = numberFloors;
 	}
 
+	/* (non-Javadoc)
+	 * @see Coursework.Building#getFloors()
+	 */
 	@Override
 	public int getFloors() {
 		return this.NUM_OF_FLOORS;
 	}
 
+	/* (non-Javadoc)
+	 * @see Coursework.Building#addCustomer(Coursework.Customer)
+	 */
 	@Override
 	public void addCustomer(Customer cust) {
 		this.customerList.add(cust);
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see Coursework.Building#getCustomerList()
+	 */
 	@Override
 	public ArrayList<Customer> getCustomerList() {
 		return this.customerList;
 	}
 
+	/* (non-Javadoc)
+	 * @see Coursework.Building#addElevator(Coursework.Elevator)
+	 */
 	@Override
 	public void addElevator(Elevator e) {
 		this.elevator = e;
 	}
 	
+	/* (non-Javadoc)
+	 * @see Coursework.Building#getElevator()
+	 */
 	@Override
 	public Elevator getElevator() {
 		return this.elevator;
 	}
 
+	/* (non-Javadoc)
+	 * @see Coursework.Building#start(int)
+	 */
 	@Override
 	public void start(int logic) {
 		if(logic == 1) this.logic1();
 		if(logic == 2) this.logic2();
 	}
 	
+	/**
+	 * Creates the Building and returns it.
+	 *
+	 * @return the building
+	 */
 	public static Building create() {
 		return Building.create();
 	}
 
+	/* (non-Javadoc)
+	 * @see Coursework.Building#customerOnCurrentFloor(Coursework.Customer)
+	 */
 	@Override
 	public boolean customerOnCurrentFloor(Customer cust) {
 		int current = this.elevator.getCurrentFloor();
@@ -68,6 +104,9 @@ public class BuildingImpl implements Building{
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see Coursework.Building#getCustomersInTransit()
+	 */
 	@Override
 	public int getCustomersInTransit() {
 		int count = 0;
@@ -82,6 +121,12 @@ public class BuildingImpl implements Building{
 	
 	
 	
+	/**
+	 * Logic1.
+	 * The default logic of the building.
+	 * Takes in all customers on each floor and lets them step out on the correct floor.
+	 * 
+	 */
 	private void logic1(){
 		while(this.getCustomersInTransit()>0){
 			int current = this.getElevator().getCurrentFloor();
@@ -115,6 +160,11 @@ public class BuildingImpl implements Building{
 		}//END WHILE no more customers needing transportation.
 	}
 	
+	/**
+	 * Logic2.
+	 * Improved logic for the elevator
+	 * Only takes customers in the direction of the elevator.
+	 */
 	private void logic2(){
 		while(this.getCustomersInTransit()>0){
 			int current = this.getElevator().getCurrentFloor();

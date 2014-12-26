@@ -7,9 +7,9 @@ import org.junit.Test;
 import Coursework.Customer;
 import Coursework.CustomerImpl;
 import Coursework.Building;
-import Coursework.BuildingImpl;
+
 import Coursework.Elevator;
-import Coursework.ElevatorImpl;
+
 
 public class BuildingTest {
 
