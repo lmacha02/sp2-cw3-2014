@@ -6,21 +6,10 @@ import java.util.Scanner;
 public class Controller {
 	public static void main(String[] args) {
 		//create building and elevators
-		
 
-		
-		
-		
-		
-		Scanner scanner = new Scanner(System.in);
-		 
-		
-		System.out.print("Set number of floors: ");
-		int inFloors = scanner.nextInt();// exception handling to be added
-		System.out.print("Set number of customers:");
-		int inCustomer = scanner.nextInt();// exception handling to be added
-		
-		scanner.close();
+		int inFloors = getPositiveInteger("Set number of floors:");
+
+		int inCustomer = getPositiveInteger("Set number of customers:");
 		
 		System.out.println("Creating Building with "+inFloors+" Floors and "+inCustomer+" Customers");
 		
@@ -49,13 +38,31 @@ public class Controller {
 		Random rn = new Random();
 		int rand = 0;
 		do{
-			rand = rn.nextInt(i*10000) + 10000;
+			rand = rn.nextInt(i*10000 + 10000);//creating a variable between 0 and NumberOfFloors.
 			rand = rand/10000;
 		}while(rand == 13);
 		
 		return rand;
 	}
 	
+	public static int getPositiveInteger(String message){
+		Scanner in = new Scanner(System.in);
+		System.out.print(message+" ");
+		int temp = 0;
+		do{
+			if(in.hasNextInt()){
+				temp = in.nextInt();
+				
+			} else {
+				System.out.print("A positive integer please! ");
+				in.next();
+			}
+			
+		}while(temp < 1);
+
+		return temp;
+		
+	}
 	
 	
 }
