@@ -91,4 +91,7 @@ public interface Building {
 	public int getCustomersInTransit();
 	
 	
+	public int getMaxStartFloor(int direction); 
+	
+	
 }

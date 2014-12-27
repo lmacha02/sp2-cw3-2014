@@ -155,6 +155,19 @@ public class ElevatorImpl implements Elevator {
 		return this.registerList.contains(cust);
 
 	}
+
+	@Override
+	public int getCustomerMaxTargetFloor() {
+		int temp = this.getCurrentFloor();
+		for(Customer cust : this.getRegisterList()){
+			if(this.getDirection() == 1){
+				if(cust.getDestination() > temp) temp = cust.getDestination();
+			} else if (this.getDirection() == -1){
+				if(cust.getDestination() < temp) temp = cust.getDestination();
+			}
+		}
+		return temp;
+	}
 	
 
 }

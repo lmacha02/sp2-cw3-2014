@@ -123,7 +123,12 @@ public interface Elevator {
 	 */
 	public boolean customerInElevator(Customer cust);
 	
-
+	
+	/**
+	 * Returns the highest/lowest destination floor of all customers in customerList
+	 * @return
+	 */
+	public int getCustomerMaxTargetFloor();
 	
 	
 }

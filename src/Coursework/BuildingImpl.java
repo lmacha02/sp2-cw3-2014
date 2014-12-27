@@ -197,6 +197,12 @@ public class BuildingImpl implements Building{
 			this.getElevator().move();
 		}//END WHILE no more customers needing transportation.
 	}
+
+	@Override
+	public int getMaxStartFloor(int direction) {
+		//To Do: get highest/lowest START floor in Elevator direction for WAITING customers.
+		return 1;
+	}
 	
 	
 

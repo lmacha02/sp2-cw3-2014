@@ -13,24 +13,42 @@ public class Controller {
 		
 		System.out.println("Creating Building with "+inFloors+" Floors and "+inCustomer+" Customers");
 		
-		Building b = Building.create();
-		Elevator e = Elevator.create();
-		b.addElevator(e);
-		b.setFloors(inFloors);
+		Building b1 = Building.create();
+		Elevator e1 = Elevator.create();
+		b1.addElevator(e1);
+		b1.setFloors(inFloors);
+		
+		Building b2 = Building.create();
+		Elevator e2 = Elevator.create();
+		b2.addElevator(e2);
+		b2.setFloors(inFloors);		
 		
 		System.out.println("Created");
 		
+		int start = 0;
+		int dest = 0;
+		
 		for(int i = 0;i < inCustomer;i++){
-			Customer cust = Customer.create();
-			cust.setStart(rnd(inFloors));
-			cust.setDestination(rnd(inFloors));
-			System.out.println("Creating Customer " +cust.getId() +": Start: "+cust.getStart()+" Dest: "+cust.getDestination());
-			b.addCustomer(cust);
+			//creating 2 customers that have the same start and destination floors for comparison.
+			Customer cust1 = Customer.create();
+			Customer cust2 = Customer.create();
+			start = rnd(inFloors);
+			dest = rnd(inFloors);
+			
+			cust1.setStart(start);
+			cust1.setDestination(dest);
+			
+			cust2.setStart(start);
+			cust2.setDestination(dest);
+			
+			System.out.println("Creating Customer " +cust1.getId() +": Start: "+cust1.getStart()+" Dest: "+cust1.getDestination());
+			b1.addCustomer(cust1);
+			b2.addCustomer(cust2);
 		}
 		System.out.println("Starting the Elevator:");
-		//b.start(1);
+		b1.start(1);
 		System.out.println("Starting Logic 2");
-		b.start(2);
+		b2.start(2);
 		
 	}
 	
