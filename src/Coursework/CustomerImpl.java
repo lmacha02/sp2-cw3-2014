@@ -1,5 +1,4 @@
 package Coursework;
-import java.util.Random;
 
 /**
  * The Class CustomerImpl.
