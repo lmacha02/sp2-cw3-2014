@@ -9,8 +9,15 @@ import Coursework.Customer;
 import Coursework.CustomerImpl;
 import Coursework.Elevator;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ElevatorTest.
+ */
 public class ElevatorTest {
 
+	/**
+	 * Test.
+	 */
 	@Test
 	public void test() {
 		Elevator e = (Elevator) Elevator.create();
@@ -18,6 +25,9 @@ public class ElevatorTest {
 		assertEquals("Wrong Answer!", e.getCurrentFloor(), 5);
 	}
 	
+	/**
+	 * Movetest up.
+	 */
 	@Test
 	public void movetestUp() {
 		Elevator e = (Elevator) Elevator.create();
@@ -27,6 +37,9 @@ public class ElevatorTest {
 		assertEquals("Wrong Answer!", e.getCurrentFloor(), 6);
 	}
 	
+	/**
+	 * Movetest down.
+	 */
 	@Test
 	public void movetestDown() {
 		Elevator e = (Elevator) Elevator.create();
@@ -36,6 +49,9 @@ public class ElevatorTest {
 		assertEquals("Wrong Answer!", e.getCurrentFloor(), 4);
 	}
 	
+	/**
+	 * Customer in test.
+	 */
 	@Test
 	public void CustomerInTest() {
 		Elevator e = (Elevator)Elevator.create();
@@ -54,6 +70,9 @@ public class ElevatorTest {
 		assertEquals("Wrong Customer ID!", c3.getId(),temp);
 	}
 	
+	/**
+	 * Customer is in test.
+	 */
 	@Test
 	public void CustomerIsInTest() {
 		Elevator e = (Elevator)Elevator.create();
@@ -71,6 +90,9 @@ public class ElevatorTest {
 		assertEquals("Is NOT in elevator", true,e.getRegisterList().contains(c2));
 	}
 	
+	/**
+	 * Customer leaves test.
+	 */
 	@Test
 	public void CustomerLeavesTest() {
 		Elevator e = (Elevator)Elevator.create();
@@ -89,6 +111,9 @@ public class ElevatorTest {
 		assertEquals("Is IN in elevator", false,e.getRegisterList().contains(c2));
 	}
 	
+	/**
+	 * Customer max floor check.
+	 */
 	@Test
 	public void CustomerMaxFloorCheck() {
 

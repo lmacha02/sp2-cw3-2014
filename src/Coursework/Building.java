@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public interface Building {
 	
 
+	/** The num floors. */
 	int numFloors = 0;
 	
 	
@@ -59,7 +60,7 @@ public interface Building {
 	public Elevator getElevator();
 	
 	/**
-	 * Creates the Building
+	 * Creates the Building.
 	 *
 	 * @return the Building object
 	 */
@@ -68,10 +69,9 @@ public interface Building {
 	}
 	
 	/**
-	 * Start the logic to transport customers
+	 * Start the logic to transport customers.
 	 *
 	 * @param logic (1)Default (2)Improved
-
 	 */
 	public void start(int logic);
 	
@@ -91,6 +91,13 @@ public interface Building {
 	public int getCustomersInTransit();
 	
 	
+	/**
+	 * Gets the max start floor.
+	 * Will return the last floor a customer will need to join the elevator in the direction indicated
+	 *
+	 * @param direction the direction (1) for UP (-1) for DOWN
+	 * @return the max start floor
+	 */
 	public int getMaxStartFloor(int direction); 
 	
 	
