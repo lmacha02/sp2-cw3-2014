@@ -1,6 +1,5 @@
 package Coursework;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface Customer.
  *
@@ -21,7 +20,7 @@ public interface Customer {
 	/**
 	 * Gets the start floor of the customer.
 	 *
-	 * @return the start
+	 * @return the start floor of the customer
 	 */
 	public int getStart();
 	
@@ -48,16 +47,16 @@ public interface Customer {
 	public int getId();
 	
 	/**
-	 * Sets the in elevator.
+	 * Sets a variable if the customer is in elevator.
 	 *
-	 * @param status the new in elevator
+	 * @param status TRUE if customer is in elevator, FALSE if outside.
 	 */
 	public void setInElevator(boolean status);
 	
 	/**
-	 * Gets the in elevator.
+	 * Gets the in elevator flag.
 	 *
-	 * @return the in elevator
+	 * @return status of the customer, TRUE if in elevator, FALSE if outside.
 	 */
 	public Boolean getInElevator();
 	

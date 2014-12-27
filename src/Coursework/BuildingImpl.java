@@ -133,12 +133,12 @@ public class BuildingImpl implements Building{
 			System.out.print(current+": ");
 			for(Customer cust : this.customerList){
 				if(!cust.getFinished()){
-					if( !this.getElevator().customerInElevator(cust) && current == cust.getStart()){
+					if( !cust.getInElevator() && current == cust.getStart()){
 						this.getElevator().customerJoins(cust);
 						cust.setInElevator(true);
 						System.out.print(cust.getId()+"+ ");
 					}
-					if( this.getElevator().customerInElevator(cust) && current == cust.getDestination()){
+					if( cust.getInElevator() && current == cust.getDestination()){
 						this.getElevator().customerLeaves(cust);
 						cust.setInElevator(false);
 						cust.setFinished();
