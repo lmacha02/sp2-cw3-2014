@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import Coursework.Customer;
 import Coursework.CustomerImpl;
-import Coursework.ElevatorImpl;
 import Coursework.Elevator;
 
 public class ElevatorTest {
@@ -39,10 +38,10 @@ public class ElevatorTest {
 	@Test
 	public void CustomerInTest() {
 		Elevator e = (Elevator)Elevator.create();
-		Customer c1 = new CustomerImpl(10);
-		Customer c2 = new CustomerImpl(10);
-		Customer c3 = new CustomerImpl(10);
-		Customer c4 = new CustomerImpl(10);
+		Customer c1 = new CustomerImpl();
+		Customer c2 = new CustomerImpl();
+		Customer c3 = new CustomerImpl();
+		Customer c4 = new CustomerImpl();
 		
 		e.customerJoins(c1);
 		e.customerJoins(c2);
@@ -57,10 +56,10 @@ public class ElevatorTest {
 	@Test
 	public void CustomerIsInTest() {
 		Elevator e = (Elevator)Elevator.create();
-		Customer c1 = new CustomerImpl(10);
-		Customer c2 = new CustomerImpl(10);
-		Customer c3 = new CustomerImpl(10);
-		Customer c4 = new CustomerImpl(10);
+		Customer c1 = new CustomerImpl();
+		Customer c2 = new CustomerImpl();
+		Customer c3 = new CustomerImpl();
+		Customer c4 = new CustomerImpl();
 		
 		e.customerJoins(c1);
 		e.customerJoins(c2);
@@ -74,10 +73,10 @@ public class ElevatorTest {
 	@Test
 	public void CustomerLeavesTest() {
 		Elevator e = (Elevator)Elevator.create();
-		Customer c1 = new CustomerImpl(10);
-		Customer c2 = new CustomerImpl(10);
-		Customer c3 = new CustomerImpl(10);
-		Customer c4 = new CustomerImpl(10);
+		Customer c1 = new CustomerImpl();
+		Customer c2 = new CustomerImpl();
+		Customer c3 = new CustomerImpl();
+		Customer c4 = new CustomerImpl();
 		
 		e.customerJoins(c1);
 		e.customerJoins(c2);
