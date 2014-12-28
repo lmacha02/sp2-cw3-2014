@@ -134,6 +134,9 @@ public class BuildingImpl implements Building{
 	 * 
 	 */
 	private void logic1(){
+		int floorCounter = 0;
+		
+		
 		while(this.getCustomersInTransit()>0){
 			int current = this.getElevator().getCurrentFloor();
 			System.out.print(current+": ");
@@ -163,7 +166,10 @@ public class BuildingImpl implements Building{
 			}
 			System.out.println("["+this.getElevator().getCustomersInElevatorString()+"]");
 			this.getElevator().move();
+			floorCounter++;
 		}//END WHILE no more customers needing transportation.
+		
+		System.out.println("Logic 1 Total Floors visited: " + floorCounter);
 	}
 	
 	/**
@@ -171,10 +177,8 @@ public class BuildingImpl implements Building{
 	 * Improved logic for the elevator
 	 * Only takes customers in the direction of the elevator.
 	 */
-	/**
-	 * 
-	 */
 	private void logic2(){
+		int floorCounter = 0;
 		while(this.getCustomersInTransit()>0){
 			int current = this.getElevator().getCurrentFloor();
 			System.out.print(current+": ");
@@ -223,8 +227,11 @@ public class BuildingImpl implements Building{
 			
 			System.out.println("["+this.getElevator().getCustomersInElevatorString()+"]");
 			this.getElevator().move();
+			floorCounter++;
 
 		}//END WHILE no more customers needing transportation.
+		
+		System.out.println("Logic 2 Total Floors visited: " + floorCounter);
 	}
 
 	

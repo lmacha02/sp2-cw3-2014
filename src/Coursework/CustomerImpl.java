@@ -61,7 +61,7 @@ public class CustomerImpl implements Customer {
 	 * @see Coursework.Customer#getDestination()
 	 */
 	public int getDestination() {
-		return destination;
+		return this.destination;
 	}
 
 	/* (non-Javadoc)
