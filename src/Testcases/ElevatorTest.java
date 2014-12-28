@@ -9,7 +9,7 @@ import Coursework.Customer;
 import Coursework.CustomerImpl;
 import Coursework.Elevator;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ElevatorTest.
  */

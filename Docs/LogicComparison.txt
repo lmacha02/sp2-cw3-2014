@@ -1,0 +1,37 @@
+# Coursework 3: Elevator
+
+To create 3 classes Customer, Elevator and Building according to documentation.
+
+Authors:
+* Christian Heiler (cheile01)
+* Luis Machado (lmacha02)
+
+## Logic Overview
+
+### Logic1 (Default Logic)
+Moves up one floor at a time, taking all customers on the loor with it and letting them step out on their destination floor.
+Moves to the top floor and then down.
+
+### Logic2 (Improved Logic)
+Moves up one floor at a time but does not stop unless there is a customer waiting to go in the direction of the elevator. 
+Changes direction if there is no customer waiting on a floor ahead **and** if there is no customer in the elevator that needs to go in the direction of the elevator.
+
+## Logic Comparison
+
+To compate the 2 implemented elevator logic components, 
+we have repeated the same floor and customer amount 5 times.
+
+* 20 Floors
+* 25 Customers
+
+| Attempt | Logic1 | Logic2 |
+|---------|--------|--------| 
+|       1 |     49 |     30 |
+|       2 |     37 |     26 |
+|       3 |     39 |     29 |
+|       4 |     39 |     26 |
+|       5 |     39 |     28 |
+
+In each test case, Logic2 has shown that significantly less floors visited.
+
+Logfiles can be found at //Docs/ElevatorLogs
