@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Controller {
 	public static void main(String[] args) {
-		//create building and elevators
+		//create building and elevator
 
 		int inFloors = getPositiveInteger("Set number of floors:");
 
@@ -13,24 +13,42 @@ public class Controller {
 		
 		System.out.println("Creating Building with "+inFloors+" Floors and "+inCustomer+" Customers");
 		
-		Building b = Building.create();
-		Elevator e = Elevator.create();
-		b.addElevator(e);
-		b.setFloors(inFloors);
+		Building b1 = Building.create();
+		Elevator e1 = Elevator.create();
+		b1.addElevator(e1);
+		b1.setFloors(inFloors);		
 		
 		System.out.println("Created");
 		
+		int start = 0;
+		int dest = 0;
+		
 		for(int i = 0;i < inCustomer;i++){
-			Customer cust = Customer.create();
-			cust.setStart(rnd(inFloors));
-			cust.setDestination(rnd(inFloors));
-			System.out.println("Creating Customer " +cust.getId() +": Start: "+cust.getStart()+" Dest: "+cust.getDestination());
-			b.addCustomer(cust);
+			//creating customer 
+			Customer cust1 = Customer.create();
+			start = rnd(inFloors);
+			dest = rnd(inFloors);
+			
+			cust1.setStart(start);
+			cust1.setDestination(dest);
+			
+			System.out.println("Creating Customer " +cust1.getId() +": Start: "+cust1.getStart()+" Dest: "+cust1.getDestination());
+			//add customer to building
+			b1.addCustomer(cust1);
 		}
 		System.out.println("Starting the Elevator:");
-		//b.start(1);
+		b1.start(1);
 		System.out.println("Starting Logic 2");
-		b.start(2);
+		
+		//make customers active again
+		for(Customer cust : b1.getCustomerList()){
+			cust.setUnfinished();
+		}
+		//reset elevator
+		b1.getElevator().setCurrentFloor(0);
+		b1.getElevator().setDirection(1);
+		
+		b1.start(2);
 		
 	}
 	

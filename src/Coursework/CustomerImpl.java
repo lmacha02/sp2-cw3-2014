@@ -1,5 +1,4 @@
 package Coursework;
-import java.util.Random;
 
 /**
  * The Class CustomerImpl.
@@ -62,7 +61,7 @@ public class CustomerImpl implements Customer {
 	 * @see Coursework.Customer#getDestination()
 	 */
 	public int getDestination() {
-		return destination;
+		return this.destination;
 	}
 
 	/* (non-Javadoc)
@@ -78,6 +77,8 @@ public class CustomerImpl implements Customer {
 	public void setFinished() {
 		this.finished = true;
 	}
+	
+	
 	
 	/* (non-Javadoc)
 	 * @see Coursework.Customer#getFinished()
@@ -118,5 +119,13 @@ public class CustomerImpl implements Customer {
 	 */
 	public static Customer create() {
 		return new CustomerImpl();
+	}
+
+	/* (non-Javadoc)
+	 * @see Coursework.Customer#setUnfinished()
+	 */
+	@Override
+	public void setUnfinished() {
+		this.finished = false;
 	}
 }

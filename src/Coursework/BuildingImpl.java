@@ -26,6 +26,7 @@ public class BuildingImpl implements Building{
 	/* (non-Javadoc)
 	 * @see Coursework.Building#setFloors(int)
 	 */
+
 	@Override
 	public void setFloors(int numberFloors) {
 		if(numberFloors == 13){
@@ -38,6 +39,7 @@ public class BuildingImpl implements Building{
 	/* (non-Javadoc)
 	 * @see Coursework.Building#getFloors()
 	 */
+
 	@Override
 	public int getFloors() {
 		return this.NUM_OF_FLOORS;
@@ -46,6 +48,7 @@ public class BuildingImpl implements Building{
 	/* (non-Javadoc)
 	 * @see Coursework.Building#addCustomer(Coursework.Customer)
 	 */
+
 	@Override
 	public void addCustomer(Customer cust) {
 		this.customerList.add(cust);
@@ -55,6 +58,7 @@ public class BuildingImpl implements Building{
 	/* (non-Javadoc)
 	 * @see Coursework.Building#getCustomerList()
 	 */
+
 	@Override
 	public ArrayList<Customer> getCustomerList() {
 		return this.customerList;
@@ -63,6 +67,7 @@ public class BuildingImpl implements Building{
 	/* (non-Javadoc)
 	 * @see Coursework.Building#addElevator(Coursework.Elevator)
 	 */
+
 	@Override
 	public void addElevator(Elevator e) {
 		this.elevator = e;
@@ -71,6 +76,7 @@ public class BuildingImpl implements Building{
 	/* (non-Javadoc)
 	 * @see Coursework.Building#getElevator()
 	 */
+
 	@Override
 	public Elevator getElevator() {
 		return this.elevator;
@@ -128,6 +134,9 @@ public class BuildingImpl implements Building{
 	 * 
 	 */
 	private void logic1(){
+		int floorCounter = 0;
+		
+		
 		while(this.getCustomersInTransit()>0){
 			int current = this.getElevator().getCurrentFloor();
 			System.out.print(current+": ");
@@ -157,7 +166,10 @@ public class BuildingImpl implements Building{
 			}
 			System.out.println("["+this.getElevator().getCustomersInElevatorString()+"]");
 			this.getElevator().move();
+			floorCounter++;
 		}//END WHILE no more customers needing transportation.
+		
+		System.out.println("Logic 1 Total Floors visited: " + floorCounter);
 	}
 	
 	/**
@@ -166,37 +178,104 @@ public class BuildingImpl implements Building{
 	 * Only takes customers in the direction of the elevator.
 	 */
 	private void logic2(){
+		int floorCounter = 0;
 		while(this.getCustomersInTransit()>0){
 			int current = this.getElevator().getCurrentFloor();
 			System.out.print(current+": ");
+			//Make elevator turn around if there are no customers ahead that need to get Off.
+			int temp = this.getMaxStartFloor(this.getElevator().getDirection());
+			int temp2 = this.getElevator().getCustomerMaxTargetFloor();
+			
+			if(this.getElevator().getDirection() == 1){
+				if(temp < temp2) temp = temp2;
+			} else if (this.getElevator().getDirection() == -1){
+				if(temp > temp2) temp = temp2;
+			}
+			
+			if(current == temp){
+				this.getElevator().changeDirection();
+				System.out.print("CHANGE ");
+			}			
+			//Make Elevator turn around in case it has reached top or bottom floor.
+			//these should never be invoked but are here in case of a calculation error
+			if (current == this.NUM_OF_FLOORS) {
+				this.getElevator().setDirection(-1);
+				System.out.print(" DOWN ");
+			} else if (current == LOWEST_FLOOR) {
+				this.getElevator().setDirection(1);
+				System.out.print(" UP ");
+			}
+			
+			boolean visit = false;
 			for(Customer cust : this.customerList){
-				if(!cust.getFinished()){
-					if( !this.getElevator().customerInElevator(cust) && current == cust.getStart() && cust.getDirection() == this.getElevator().getDirection()){
+				if(!cust.getFinished()){			
+					if( !this.getElevator().customerInElevator(cust) 
+							&& current == cust.getStart() 
+							&& cust.getDirection() == this.getElevator().getDirection()){
 						this.getElevator().customerJoins(cust);
 						cust.setInElevator(true);
 						System.out.print(cust.getId()+"+ ");
+						visit = true;
 					}
-					if( this.getElevator().customerInElevator(cust) && current == cust.getDestination()){
+					if( this.getElevator().customerInElevator(cust) 
+							&& current == cust.getDestination()){
 						this.getElevator().customerLeaves(cust);
 						cust.setInElevator(false);
 						cust.setFinished();
 						System.out.print(cust.getId()+"- ");
+						visit = true;
 					}
+
 				}//END IF !cust.get.Finished()
 			}//END FOR loop
-			if (current == this.NUM_OF_FLOORS) {
-				this.getElevator().setDirection(-1);
-				System.out.print(" DOWN ");
+			if(visit){
+				System.out.println("["+this.getElevator().getCustomersInElevatorString()+"]");
+				floorCounter++;
+			} else {
+				System.out.println();
 			}
-			//Make Elevator turn around in case it has reached top or bottom floor.
-			if (current == LOWEST_FLOOR) {
-				this.getElevator().setDirection(1);
-				System.out.print(" UP ");
-			}
-			System.out.println("["+this.getElevator().getCustomersInElevatorString()+"]");
 			this.getElevator().move();
+			try{
+				Thread.sleep(1);
+			} catch(InterruptedException ex) {
+			    Thread.currentThread().interrupt();
+			}
+			
+
 		}//END WHILE no more customers needing transportation.
+		
+		System.out.println("Logic 2 Total Floors visited: " + floorCounter);
 	}
+
+	
+	/**
+	 * Gets the max start floor.
+	 *
+	 * @param direction the direction
+	 * @return the max start floor
+	 */
+	@Override
+	public int getMaxStartFloor(int direction) {
+		int temp = 0;
+		if(direction == -1) temp = this.getFloors(); //set top floor to count down from.
+		
+		for(Customer cust : this.getCustomerList()){
+			//only count customers that are still active and not already in elevator
+			if(!cust.getFinished() && !cust.getInElevator()){
+				if(direction == 1){
+					if(cust.getStart() > temp) temp = cust.getStart();
+				} else if (direction == -1){
+					if(cust.getStart() < temp) temp = cust.getStart();
+				}
+				
+			}	
+		}
+		return temp;
+	}
+	
+	
+	
+	
 	
 	
 

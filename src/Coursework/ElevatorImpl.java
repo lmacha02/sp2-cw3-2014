@@ -2,6 +2,7 @@ package Coursework;
 
 import java.util.ArrayList;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class ElevatorImpl.
  *
@@ -53,7 +54,6 @@ public class ElevatorImpl implements Elevator {
 	public void move() {
 		this.currentFloor += this.direction;
 		if(this.currentFloor == 13) this.currentFloor += this.direction;
-
 	}
 
 	/* (non-Javadoc)
@@ -154,6 +154,22 @@ public class ElevatorImpl implements Elevator {
 	public boolean customerInElevator(Customer cust) {
 		return this.registerList.contains(cust);
 
+	}
+
+	/* (non-Javadoc)
+	 * @see Coursework.Elevator#getCustomerMaxTargetFloor()
+	 */
+	@Override
+	public int getCustomerMaxTargetFloor() {
+		int temp = this.getCurrentFloor()-this.getDirection();
+		for(Customer cust : this.getRegisterList()){
+			if(this.getDirection() == 1){
+				if(cust.getDestination() > temp) temp = cust.getDestination();
+			} else if (this.getDirection() == -1){
+				if(cust.getDestination() < temp) temp = cust.getDestination();
+			}
+		}
+		return temp;
 	}
 	
 
