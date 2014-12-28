@@ -78,6 +78,8 @@ public class CustomerImpl implements Customer {
 		this.finished = true;
 	}
 	
+	
+	
 	/* (non-Javadoc)
 	 * @see Coursework.Customer#getFinished()
 	 */
@@ -117,5 +119,13 @@ public class CustomerImpl implements Customer {
 	 */
 	public static Customer create() {
 		return new CustomerImpl();
+	}
+
+	/* (non-Javadoc)
+	 * @see Coursework.Customer#setUnfinished()
+	 */
+	@Override
+	public void setUnfinished() {
+		this.finished = false;
 	}
 }

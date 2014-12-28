@@ -54,7 +54,6 @@ public class ElevatorImpl implements Elevator {
 	public void move() {
 		this.currentFloor += this.direction;
 		if(this.currentFloor == 13) this.currentFloor += this.direction;
-
 	}
 
 	/* (non-Javadoc)

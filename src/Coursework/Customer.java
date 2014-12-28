@@ -90,4 +90,8 @@ public interface Customer {
 		return CustomerImpl.create();
 	};
 	
+	/**
+	 * Sets the customer finished flag as false
+	 */
+	public void setUnfinished();
 }

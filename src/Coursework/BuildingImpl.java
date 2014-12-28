@@ -194,7 +194,7 @@ public class BuildingImpl implements Building{
 			
 			if(current == temp){
 				this.getElevator().changeDirection();
-				System.out.print(" CHANGE ");
+				System.out.print("CHANGE ");
 			}			
 			//Make Elevator turn around in case it has reached top or bottom floor.
 			//these should never be invoked but are here in case of a calculation error
@@ -206,28 +206,41 @@ public class BuildingImpl implements Building{
 				System.out.print(" UP ");
 			}
 			
-			
+			boolean visit = false;
 			for(Customer cust : this.customerList){
-				if(!cust.getFinished()){
+				if(!cust.getFinished()){			
 					if( !this.getElevator().customerInElevator(cust) 
 							&& current == cust.getStart() 
 							&& cust.getDirection() == this.getElevator().getDirection()){
 						this.getElevator().customerJoins(cust);
 						cust.setInElevator(true);
 						System.out.print(cust.getId()+"+ ");
+						visit = true;
 					}
-					if( this.getElevator().customerInElevator(cust) && current == cust.getDestination()){
+					if( this.getElevator().customerInElevator(cust) 
+							&& current == cust.getDestination()){
 						this.getElevator().customerLeaves(cust);
 						cust.setInElevator(false);
 						cust.setFinished();
 						System.out.print(cust.getId()+"- ");
+						visit = true;
 					}
+
 				}//END IF !cust.get.Finished()
 			}//END FOR loop
-			
-			System.out.println("["+this.getElevator().getCustomersInElevatorString()+"]");
+			if(visit){
+				System.out.println("["+this.getElevator().getCustomersInElevatorString()+"]");
+				floorCounter++;
+			} else {
+				System.out.println();
+			}
 			this.getElevator().move();
-			floorCounter++;
+			try{
+				Thread.sleep(1);
+			} catch(InterruptedException ex) {
+			    Thread.currentThread().interrupt();
+			}
+			
 
 		}//END WHILE no more customers needing transportation.
 		

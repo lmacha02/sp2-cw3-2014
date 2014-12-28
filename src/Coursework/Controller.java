@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Controller {
 	public static void main(String[] args) {
-		//create building and elevators
+		//create building and elevator
 
 		int inFloors = getPositiveInteger("Set number of floors:");
 
@@ -16,12 +16,7 @@ public class Controller {
 		Building b1 = Building.create();
 		Elevator e1 = Elevator.create();
 		b1.addElevator(e1);
-		b1.setFloors(inFloors);
-		
-		Building b2 = Building.create();
-		Elevator e2 = Elevator.create();
-		b2.addElevator(e2);
-		b2.setFloors(inFloors);		
+		b1.setFloors(inFloors);		
 		
 		System.out.println("Created");
 		
@@ -29,26 +24,31 @@ public class Controller {
 		int dest = 0;
 		
 		for(int i = 0;i < inCustomer;i++){
-			//creating 2 customers that have the same start and destination floors for comparison.
+			//creating customer 
 			Customer cust1 = Customer.create();
-			Customer cust2 = Customer.create();
 			start = rnd(inFloors);
 			dest = rnd(inFloors);
 			
 			cust1.setStart(start);
 			cust1.setDestination(dest);
 			
-			cust2.setStart(start);
-			cust2.setDestination(dest);
-			
 			System.out.println("Creating Customer " +cust1.getId() +": Start: "+cust1.getStart()+" Dest: "+cust1.getDestination());
+			//add customer to building
 			b1.addCustomer(cust1);
-			b2.addCustomer(cust2);
 		}
 		System.out.println("Starting the Elevator:");
 		b1.start(1);
 		System.out.println("Starting Logic 2");
-		b2.start(2);
+		
+		//make customers active again
+		for(Customer cust : b1.getCustomerList()){
+			cust.setUnfinished();
+		}
+		//reset elevator
+		b1.getElevator().setCurrentFloor(0);
+		b1.getElevator().setDirection(1);
+		
+		b1.start(2);
 		
 	}
 	
