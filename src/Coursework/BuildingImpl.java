@@ -235,12 +235,6 @@ public class BuildingImpl implements Building{
 				System.out.println();
 			}
 			this.getElevator().move();
-			try{
-				Thread.sleep(1);
-			} catch(InterruptedException ex) {
-			    Thread.currentThread().interrupt();
-			}
-			
 
 		}//END WHILE no more customers needing transportation.
 		
