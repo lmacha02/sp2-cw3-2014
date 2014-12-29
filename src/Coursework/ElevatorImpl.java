@@ -2,7 +2,6 @@ package Coursework;
 
 import java.util.ArrayList;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ElevatorImpl.
  *

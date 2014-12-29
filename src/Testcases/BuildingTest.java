@@ -10,8 +10,6 @@ import Coursework.Building;
 
 import Coursework.Elevator;
 
-
-// TODO: Auto-generated Javadoc
 /**
  * The Class BuildingTest.
  */
